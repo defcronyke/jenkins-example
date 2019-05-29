@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'golang' } }
+    agent { docker { image 'jenkins-example:1' } }
     stages {
-        stage('build') {
+        stage('test') {
             steps {
-                sh 'go version'
+                sh 'main'
             }
         }
     }
