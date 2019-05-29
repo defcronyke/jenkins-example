@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         docker { 
-            image 'localhost:5000/jenkins-example'
+            image 'jenkins-example:1'
             alwaysPull false
         }
     }
