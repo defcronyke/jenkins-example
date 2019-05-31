@@ -1,7 +1,8 @@
 pipeline {
     agent { 
-        docker.withRegistry('http://localhost:5000') {
-            docker.image 'localhost:5000/jenkins-example:latest'
+        docker {
+            image 'localhost:5000/jenkins-example:latest'
+            registryUrl 'http://localhost:5000'
         }
     }
     stages {
