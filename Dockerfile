@@ -24,6 +24,8 @@ WORKDIR /
 # an https proxy in front of the service.
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
+COPY --from=build /bin/cat /bin/cat
+
 COPY --from=build /go/main ./
 
 # Enable the user account we created in the other
