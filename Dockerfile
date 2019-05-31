@@ -25,6 +25,7 @@ WORKDIR /
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 COPY --from=build /bin/cat /bin/cat
+COPY --from=build /usr/bin/top /usr/bin/top
 
 COPY --from=build /go/main ./
 
