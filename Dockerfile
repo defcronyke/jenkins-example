@@ -24,18 +24,14 @@ WORKDIR /
 # an https proxy in front of the service.
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
-# COPY --from=build /bin/cat /bin/cat
-# COPY --from=build /usr/bin/top /usr/bin/top
-# COPY --from=build /bin/sh /bin/sh
-
+# Copy the app's binary into the production container.
 COPY --from=build /go/main ./
-
-# COPY ./run.sh ./run.sh
 
 # Enable the user account we created in the other
 # stage, and become a regular user.
 COPY --from=build /etc/passwd /etc/
 USER appuser
 
+# Run the app's binary.
 CMD ["./main"]
 # ----------
