@@ -1,8 +1,8 @@
 pipeline {
     agent { 
         docker { 
-            image 'jenkins-example:1'
-            alwaysPull false
+            image 'jenkins-example/1'
+            // alwaysPull false
         }
     }
     stages {
