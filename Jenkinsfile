@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('test') {
             steps {
-                sh 'main'
+                sh '/main'
             }
         }
     }
