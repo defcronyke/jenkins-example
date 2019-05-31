@@ -13,8 +13,8 @@ pipeline {
 
 pipeline {
     agent { 
-        docker {
-            image "localhost:5000/jenkins-example:latest"
+        docker.withRegistry('http://localhost:5000') {
+            docker.image 'localhost:5000/jenkins-example:latest'
         }
     }
     stages {
