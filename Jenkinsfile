@@ -1,7 +1,6 @@
 pipeline {
     agent { 
-        any {
-            dockerfile true
+        dockerfile {
             args '-it --entrypoint=/bin/bash'
         }
     }
