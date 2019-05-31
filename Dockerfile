@@ -14,7 +14,7 @@ RUN apk update && apk upgrade && apk --no-cache add git ca-certificates && updat
 
 
 # ----- production stage -----
-FROM scratch
+FROM alpine
 
 # Set working directory to filesystem root.
 WORKDIR /
@@ -24,11 +24,13 @@ WORKDIR /
 # an https proxy in front of the service.
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
-COPY --from=build /bin/cat /bin/cat
-COPY --from=build /usr/bin/top /usr/bin/top
-COPY --from=build /bin/sh /bin/sh
+# COPY --from=build /bin/cat /bin/cat
+# COPY --from=build /usr/bin/top /usr/bin/top
+# COPY --from=build /bin/sh /bin/sh
 
 COPY --from=build /go/main ./
+
+# COPY ./run.sh ./run.sh
 
 # Enable the user account we created in the other
 # stage, and become a regular user.
