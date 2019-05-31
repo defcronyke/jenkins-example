@@ -1,9 +1,6 @@
 pipeline {
     agent { 
-        docker { 
-            image 'localhost:5000/jenkins-example'
-            // alwaysPull false
-        }
+        dockerfile true
     }
     stages {
         stage('test') {
